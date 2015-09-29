@@ -56,15 +56,15 @@ variable "ami" {
 TODO
 ----
 
--	[] Parse HCL from string into JSON
--	[] Parse HCL from file into JSON
--	[] Requireable config from HCL
--	[] JSON to HCL string
--	[] JSON to HCL file
--	[] Handle variables
--	[] Handle templates
--	[] Add built-in functions [like here](https://terraform.io/docs/configuration/interpolation.html)
--	[] Handle custom interpreters [like here](https://terraform.io/docs/configuration/resources.html)
+-	[ ] Parse HCL from string into JSON
+-	[ ] Parse HCL from file into JSON
+-	[ ] Requireable config from HCL
+-	[ ] JSON to HCL string
+-	[ ] JSON to HCL file
+-	[ ] Handle variables
+-	[ ] Handle templates
+-	[ ] Add built-in functions [like here](https://terraform.io/docs/configuration/interpolation.html)
+-	[ ] Handle custom interpreters [like here](https://terraform.io/docs/configuration/resources.html)
 
 Licence
 -------
