@@ -44,9 +44,9 @@ variable "ami" {
 
 ```json
 {
-  variable: {
+  "variable": {
     "ami": {
-      description: "the AMI to use"
+      "description": "the AMI to use"
     }
   }
 }
