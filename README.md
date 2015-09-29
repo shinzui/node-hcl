@@ -7,7 +7,7 @@ HCL (HashiCorp Configuration Language) is a configuration language built by Hash
 
 HCL is also fully JSON compatible. That is, JSON can be used as completely valid input to a system expecting HCL. This helps makes systems interoperable with other systems.
 
-HCL is heavily inspired by[libucl](https://github.com/vstakhov/libucl), nginx configuration, and others similar.
+HCL is heavily inspired by [libucl](https://github.com/vstakhov/libucl), nginx configuration, and others similar.
 
 Why?
 ----
@@ -33,7 +33,7 @@ Resource
 Syntax
 ------
 
-The complete grammar[can be found here](https://github.com/hashicorp/hcl/blob/master/hcl/parse.y), if you're more comfortable reading specifics, but a high-level overview of the syntax and grammar are listed here.
+The complete grammar [can be found here](https://github.com/hashicorp/hcl/blob/master/hcl/parse.y), if you're more comfortable reading specifics, but a high-level overview of the syntax and grammar are listed here.
 
 -	Single line comments start with `#` or `//`
 
@@ -85,5 +85,3 @@ Licence
 -------
 
 The original language is licenced under Mozilla Public License, version 2.0 https://github.com/hashicorp/hcl/blob/master/LICENSE
-
-Whatever that is mine is under MIT.
