@@ -1,17 +1,16 @@
 
 
 
-// /*
-//
-//   This is a mutli line string
-//
-// */
+/*
+
+  This is a mutli line string
+
+*/
 application {
 
-  # this is a single commment
   awesomeString = "string"
 
-  awesomeNumber = 100 # this is a trailing comment
+  awesomeNumber = 100
 
   awsomeBoolean = true // this is a trailing comment
 
