@@ -69,8 +69,15 @@ block
                 var value = [first]
                 .concat(rest)
                 .forEach(function (el) {
+                  if (Array.isArray(el)) {
+                    joined[el[0]] = el[1].value
+                  } else if (el.value.hint) {
+                    joined[el.parent_key] = el.value.value
 
+                  } else {
                     joined[el.parent_key] = el.value;
+
+                  }
                     return
                 });
 
