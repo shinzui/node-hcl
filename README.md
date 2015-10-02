@@ -1,7 +1,7 @@
 #### @TODO
 
--	[ ] Parse HCL from string into JSON
--	[ ] Parse HCL from file into JSON
+-	[x] Parse HCL from string into JSON
+-	[x] Parse HCL from file into JSON
 -	[ ] Requireable config from HCL
 -	[ ] JSON to HCL string
 -	[ ] JSON to HCL file
