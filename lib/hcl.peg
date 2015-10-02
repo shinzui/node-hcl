@@ -69,15 +69,32 @@ block
                 var value = [first]
                 .concat(rest)
                 .forEach(function (el) {
-                  if (Array.isArray(el)) {
-                    joined[el[0]] = el[1].value
-                  } else if (el.value.hint) {
-                    joined[el.parent_key] = el.value.value
+                    if (Array.isArray(el)) {
 
-                  } else {
-                    joined[el.parent_key] = el.value;
+                      var parent_key = el[0]
+                      var child_value = el[1].value
 
-                  }
+                      if (!joined[parent_key]) {
+                        joined[parent_key] = child_value
+                      } else if (!Array.isArray(joined[parent_key])){
+
+                        var previousValue = joined[parent_key]
+
+                        joined[parent_key] = []
+                        joined[parent_key].push(previousValue)
+                        joined[parent_key].push(child_value)
+
+                      } else {
+                        joined[parent_key].push(child_value)
+                      }
+
+                    } else if (el.value.hint) {
+                      joined[el.parent_key] = el.value.value
+
+                    } else {
+                      joined[el.parent_key] = el.value;
+
+                    }
                     return
                 });
 
