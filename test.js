@@ -8,3 +8,4 @@ const object = HCL.load("./Norma");
 
 console.log("\n--- Lets see how we did ---\n")
 console.log(PrettyPrint.render(object));
+// console.log(object)

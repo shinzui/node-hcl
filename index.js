@@ -16,7 +16,7 @@ class HCL {
 HCL.prototype.stringify = require("./lib/stringify");
 
 // parses an HCL string into an object
-HCL.prototype.parse = require("./lib/parse");
+HCL.prototype.parse = require("./lib/hcl").parse;
 
 // parses an HCL file into an object
 HCL.prototype.load = require("./lib/load");

@@ -9,11 +9,11 @@
 application {
 
   # this is a single commment
-  name = "string"
+  awesomeString = "string"
 
-  number = 100 # this is a trailing comment
+  awesomeNumber = 100 # this is a trailing comment
 
-  boolean = true // this is a trailing comment
+  awsomeBoolean = true // this is a trailing comment
 
   // this is a single comment
   array = [
