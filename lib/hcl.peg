@@ -1,10 +1,10 @@
 
 start
   = _ sections:section* _ {
-    var root = {};
+    let root = {};
 
     Object.prototype.extend = function(obj) {
-      for (var i in obj) {
+      for (let i in obj) {
         if (obj.hasOwnProperty(i)) {
            this[i] = obj[i];
         }
@@ -12,17 +12,17 @@ start
     };
 
     sections.forEach(function (el) {
-      var parent = root[el.parent_key]
+      let parent = root[el.parent_key]
       if (el.child_key) {
         root[el.parent_key] || (root[el.parent_key] = {});
 
-        var child_object = {}
+        let child_object = {}
         child_object[el.child_key] = el.value
 
         root[el.parent_key][el.child_key] || (root[el.parent_key][el.child_key] = {})
 
 
-        var child_value = child_object[el.child_key]
+        let child_value = child_object[el.child_key]
         root[el.parent_key][el.child_key].extend(child_value);
       } else {
         root[el.parent_key] = el.value;
@@ -44,8 +44,8 @@ literal
 
 section
   = parent_key:identifier _ value:section {
-    var child;
-    var child_key = false;
+    let child;
+    let child_key = false;
     // console.log('foo %j', value);
 
     switch(value.hint) {
@@ -84,20 +84,20 @@ block
         first:block_member
         rest:(_ m:block_member { return m; })*
         {
-          var joined = {};
-          var value = [first]
+          let joined = {};
+          let value = [first]
             .concat(rest)
             .forEach(function (el) {
               if (Array.isArray(el)) {
 
-                var parent_key = el[0]
-                var child_value = el[1].value
+                let parent_key = el[0]
+                let child_value = el[1].value
 
                 if (!joined[parent_key]) {
                   joined[parent_key] = child_value
                 } else if (!Array.isArray(joined[parent_key])){
 
-                  var previousValue = joined[parent_key]
+                  let previousValue = joined[parent_key]
 
                   joined[parent_key] = []
                   joined[parent_key].push(previousValue)
@@ -142,7 +142,7 @@ object
         rest:(value_separator m:object_member { return m; })*
         value_separator?
         {
-          var result = {hint: 'object'};
+          let result = {hint: 'object'};
 
           [first]
           .concat(rest)
