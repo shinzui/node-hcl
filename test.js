@@ -1,10 +1,10 @@
 "use strict";
 
-const HCL = require("./index"),
+const HCL = require("./index")(".tf"),
       PrettyPrint = require("prettyjson");
 
 
-const object = HCL.load("./Norma");
+const object = require("./test-config");
 
 console.log("\n--- Lets see how we did ---\n")
 console.log(PrettyPrint.render(object));
