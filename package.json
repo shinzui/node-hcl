@@ -21,5 +21,8 @@
   "homepage": "https://github.com/NewSpring/node-hcl",
   "devDependencies": {
     "prettyjson": "^1.1.3"
+  },
+  "dependencies": {
+    "remedial": "^1.0.7"
   }
 }
