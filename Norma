@@ -1,40 +1,40 @@
 
 
 
-/*
-
-  This is a mutli line string
-
-*/
-application {
-
-  # this is a single commment
-  awesomeString = "string"
-
-  awesomeNumber = 100 # this is a trailing comment
-
-  awsomeBoolean = true // this is a trailing comment
-
-  // this is a single comment
-  array = [
-    "string", true, 10
-  ]
-
-
-}
-
-variable "image" {
-  default = "value"
-  description = "the AMI to use"
-}
-
-variable "images" {
-  default = {
-    us-east-1 = "image-1234"
-    us-west-2 = "image-4567"
-  }
-  description = "the AMI to use"
-}
+// /*
+//
+//   This is a mutli line string
+//
+// */
+// application {
+//
+//   # this is a single commment
+//   awesomeString = "string"
+//
+//   awesomeNumber = 100 # this is a trailing comment
+//
+//   awsomeBoolean = true // this is a trailing comment
+//
+//   // this is a single comment
+//   array = [
+//     "string", true, 10
+//   ]
+//
+//
+// }
+//
+// variable "image" {
+//   default = "value"
+//   description = "the AMI to use"
+// }
+//
+// variable "images" {
+//   default = {
+//     us-east-1 = "image-1234"
+//     us-west-2 = "image-4567"
+//   }
+//   description = "the AMI to use"
+// }
 
 
 resource "aws_instance" "web" {
@@ -42,17 +42,17 @@ resource "aws_instance" "web" {
   count = 2
   source_dest_check = false
 
-  connection {
-    user = "root"
-  }
+  // connection {
+  //   user = "root"
+  // }
 }
-
-resource "aws_instance" "server" {
-  ami = "${var.ami}"
-  count = 2
-  source_dest_check = false
-
-  connection {
-    user = "root"
-  }
-}
+//
+// resource "aws_instance" "server" {
+//   ami = "${var.ami}"
+//   count = 2
+//   source_dest_check = false
+//
+//   connection {
+//     user = "root"
+//   }
+// }
