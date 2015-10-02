@@ -80,6 +80,20 @@ variable "ami" {
 
 ```
 
+Usage
+-----
+
+```javascript
+
+const NodeHCL = require("node-hcl");
+
+const object = NodeHCL.load("path-to-file");
+
+console.log(object);
+
+
+```
+
 Licence
 -------
 
