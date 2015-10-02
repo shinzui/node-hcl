@@ -3,12 +3,27 @@ start
     = _ sections:section* _ {
         var root = {};
 
+        Object.prototype.extend = function(obj) {
+           for (var i in obj) {
+              if (obj.hasOwnProperty(i)) {
+                 this[i] = obj[i];
+              }
+           }
+        };
+
         sections.forEach(function (el) {
             var parent = root[el.parent_key]
-
             if (el.child_key) {
               root[el.parent_key] || (root[el.parent_key] = {});
-              root[el.parent_key][el.child_key] = el.value
+
+              var child_object = {}
+              child_object[el.child_key] = el.value
+
+              root[el.parent_key][el.child_key] || (root[el.parent_key][el.child_key] = {})
+
+
+              var child_value = child_object[el.child_key]
+              root[el.parent_key][el.child_key].extend(child_value);
             } else {
               root[el.parent_key] = el.value;
             }
@@ -30,15 +45,19 @@ literal
 section
     = parent_key:identifier _ value:section {
         var child;
-        var inner = {};
         var child_key = false;
         // console.log('foo %j', value);
 
         switch(value.hint) {
             case 'section':
-                inner[value.parent_key] = value.value;
-                child_key = value.parent_key
-                child = value.value;
+                if (value.parent_key && value.child_key) {
+                  child_key = value.parent_key
+                  child = {}
+                  child[value.child_key] = value.value
+                } else {
+                  child_key = value.parent_key
+                  child = value.value;
+                }
                 break;
             case 'block':
                 child = value.value;

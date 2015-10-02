@@ -6,38 +6,38 @@
 //   This is a mutli line string
 //
 // */
-// application {
-//
-//   # this is a single commment
-//   awesomeString = "string"
-//
-//   awesomeNumber = 100 # this is a trailing comment
-//
-//   awsomeBoolean = true // this is a trailing comment
-//
-//   // this is a single comment
-//   array = [
-//     "string", true, 10
-//   ]
-//
-//
-// }
-//
-// variable "image" {
-//   default = "value"
-//   description = "the AMI to use"
-// }
-//
-// variable "images" {
-//
-//   description = "the AMI to use"
-//   default = {
-//     us-east-1 = "image-1234"
-//     us-west-2 = "image-4567"
-//   }
-// }
-//
-//
+application {
+
+  # this is a single commment
+  awesomeString = "string"
+
+  awesomeNumber = 100 # this is a trailing comment
+
+  awsomeBoolean = true // this is a trailing comment
+
+  // this is a single comment
+  array = [
+    "string", true, 10
+  ]
+
+
+}
+
+variable "image" {
+  default = "value"
+  description = "the AMI to use"
+}
+
+variable "images" {
+
+  description = "the AMI to use"
+  default = {
+    us-east-1 = "image-1234"
+    us-west-2 = "image-4567"
+  }
+}
+
+
 resource "aws_instance" "web" {
   ami = "${var.ami}"
   count = 2
@@ -48,38 +48,13 @@ resource "aws_instance" "web" {
   }
 }
 
-resource "aws_autoscaling_group" "kubernetes-autoscaling" {
-  depends_on = ["aws_launch_configuration.kubernetes-launch-config","aws_instance.kubernetes-master"]
-  availability_zones = ["us-east-1b","us-east-1c","us-east-1d","us-east-1e"]
-  name = "kubernetes-autoscaling-group"
-  max_size = 24
-  min_size = 3
-  desired_capacity = "${var.kubernetes-node-count}"
-  launch_configuration = "${aws_launch_configuration.kubernetes-launch-config.id}"
-  vpc_zone_identifier = ["subnet-61e8965b","subnet-fc8736a5","subnet-014ddc76","subnet-c4ef30ef"]
-  tag {
-    key = "Name"
-    value = "kubernetes-node"
-    propagate_at_launch = true
-  }
-  tag {
-    key = "Cluster"
-    value = "ark"
-    propagate_at_launch = true
-  }
-  tag {
-    key = "KubernetesCluster"
-    value = "kubernetes"
-    propagate_at_launch = true
+
+resource "aws_instance" "server" {
+  ami = "${var.ami}"
+  count = 2
+  source_dest_check = false
+
+  connection {
+    user = "root"
   }
 }
-
-// resource "aws_instance" "server" {
-//   ami = "${var.ami}"
-//   count = 2
-//   source_dest_check = false
-//
-//   // connection {
-//   //   user = "root"
-//   // }
-// }
