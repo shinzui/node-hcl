@@ -22,7 +22,22 @@ const object = {
     "object": {
       "key": "value"
     }
+  },
+  "variable": {
+    "image": {
+      "default": "value",
+      "description": "the AMI to use"
+    },
+    "images": {
+      "description": "the AMI to use",
+      "default": {
+        "us-east-1": "image-1234",
+        "us-west-2": "image-4567"
+      }
+    }
   }
+
+
 }
 
 
