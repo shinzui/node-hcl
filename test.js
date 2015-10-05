@@ -24,6 +24,7 @@ const object = {
     }
   },
   "variable": {
+    "bool": true,
     "image": {
       "default": "value",
       "description": "the AMI to use"
@@ -40,7 +41,8 @@ const object = {
 
 }
 
+const testObject = HCL.load("./Norma");
 
-
-console.log(HCL.stringify(object));
-// console.log(object)
+console.log(HCL.stringify(testObject));
+console.log("\n--- Lets see how we did ---\n")
+console.log(PrettyPrint.render(testObject));

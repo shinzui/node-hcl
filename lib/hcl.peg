@@ -3,10 +3,10 @@ start
   = _ sections:section* _ {
     let root = {};
 
-    Object.prototype.extend = function(obj) {
+    const extend = function(base, obj) {
       for (let i in obj) {
         if (obj.hasOwnProperty(i)) {
-           this[i] = obj[i];
+           base[i] = obj[i];
         }
       }
     };
@@ -23,7 +23,8 @@ start
 
 
         let child_value = child_object[el.child_key]
-        root[el.parent_key][el.child_key].extend(child_value);
+        extend(root[el.parent_key][el.child_key], child_value);
+
       } else {
         root[el.parent_key] = el.value;
       }
