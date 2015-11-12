@@ -2,9 +2,9 @@
 
 -	[x] Parse HCL from string into JSON
 -	[x] Parse HCL from file into JSON
--	[ ] Requireable config from HCL
--	[ ] JSON to HCL string
--	[ ] JSON to HCL file
+-	[x] Requireable config from HCL
+-	[x] JSON to HCL string
+-	[x] JSON to HCL file
 -	[ ] Handle variables
 -	[ ] Handle templates
 -	[ ] Add built-in functions [like here](https://terraform.io/docs/configuration/interpolation.html)
